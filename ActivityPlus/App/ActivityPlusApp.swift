@@ -11,6 +11,7 @@ import Firebase
 @main
 struct ActivityPlusApp: App {
     @StateObject var viewModel = AuthViewModel()
+    @StateObject var manager = healthManager.shared
     
     init () {
         FirebaseApp.configure()
@@ -20,6 +21,7 @@ struct ActivityPlusApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModel)
+                .environmentObject(manager)
         }
     }
 }

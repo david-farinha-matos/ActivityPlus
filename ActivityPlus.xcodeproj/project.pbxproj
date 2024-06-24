@@ -23,6 +23,13 @@
 		AF11E8EC2C04DD2F00E22AEC /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AF11E8EB2C04DD2F00E22AEC /* FirebaseFirestoreSwift */; };
 		AF11E8EE2C04DD2F00E22AEC /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = AF11E8ED2C04DD2F00E22AEC /* FirebaseStorage */; };
 		AF11E8F22C04DD9300E22AEC /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF11E8F12C04DD9300E22AEC /* AuthViewModel.swift */; };
+		AF197E942C22D848004DA31C /* YourFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF197E932C22D848004DA31C /* YourFeedView.swift */; };
+		AF197EA62C234468004DA31C /* ActivityLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF197EA52C234468004DA31C /* ActivityLogView.swift */; };
+		AF197EA82C234835004DA31C /* DialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF197EA72C234835004DA31C /* DialView.swift */; };
+		AF197EAA2C234855004DA31C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF197EA92C234855004DA31C /* CircleView.swift */; };
+		AF197EAD2C2348AD004DA31C /* healthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF197EAC2C2348AD004DA31C /* healthManager.swift */; };
+		AF8663132C076132004F64B5 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8663122C076132004F64B5 /* MainTabBarView.swift */; };
+		AFD6F3E92C24375700EAC41A /* DialHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD6F3E82C24375700EAC41A /* DialHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +46,15 @@
 		AF11E8E22C04DA2E00E22AEC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AF11E8E42C04DC3800E22AEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AF11E8F12C04DD9300E22AEC /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		AF197E932C22D848004DA31C /* YourFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourFeedView.swift; sourceTree = "<group>"; };
+		AF197EA52C234468004DA31C /* ActivityLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLogView.swift; sourceTree = "<group>"; };
+		AF197EA72C234835004DA31C /* DialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialView.swift; sourceTree = "<group>"; };
+		AF197EA92C234855004DA31C /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		AF197EAC2C2348AD004DA31C /* healthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = healthManager.swift; sourceTree = "<group>"; };
+		AF197EAE2C234C15004DA31C /* ActivityPlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ActivityPlus.entitlements; sourceTree = "<group>"; };
+		AF197EAF2C23541F004DA31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AF8663122C076132004F64B5 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
+		AFD6F3E82C24375700EAC41A /* DialHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +91,8 @@
 		AF11E8BE2C04BBA900E22AEC /* ActivityPlus */ = {
 			isa = PBXGroup;
 			children = (
+				AF197EAF2C23541F004DA31C /* Info.plist */,
+				AF197EAE2C234C15004DA31C /* ActivityPlus.entitlements */,
 				AF11E8D42C04D64F00E22AEC /* App */,
 				AF11E8D32C04D64E00E22AEC /* Components */,
 				AF11E8D22C04D64D00E22AEC /* Core */,
@@ -105,6 +123,9 @@
 		AF11E8D22C04D64D00E22AEC /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				AF197EAB2C23488F004DA31C /* Health */,
+				AF197EA42C234422004DA31C /* Dial */,
+				AF8663112C076119004F64B5 /* TabBar */,
 				AF11E8D62C04D6BF00E22AEC /* Authentication */,
 				AF11E8D72C04D6C700E22AEC /* Profile */,
 				AF11E8D52C04D6B000E22AEC /* Root */,
@@ -150,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				AF11E8DE2C04D90600E22AEC /* ProfileView.swift */,
+				AF197E932C22D848004DA31C /* YourFeedView.swift */,
+				AF197EA52C234468004DA31C /* ActivityLogView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -169,6 +192,32 @@
 				AF11E8F12C04DD9300E22AEC /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF197EA42C234422004DA31C /* Dial */ = {
+			isa = PBXGroup;
+			children = (
+				AF197EA72C234835004DA31C /* DialView.swift */,
+				AF197EA92C234855004DA31C /* CircleView.swift */,
+				AFD6F3E82C24375700EAC41A /* DialHeaderView.swift */,
+			);
+			path = Dial;
+			sourceTree = "<group>";
+		};
+		AF197EAB2C23488F004DA31C /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				AF197EAC2C2348AD004DA31C /* healthManager.swift */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
+		AF8663112C076119004F64B5 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				AF8663122C076132004F64B5 /* MainTabBarView.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,15 +300,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF197EA82C234835004DA31C /* DialView.swift in Sources */,
 				AF11E8D92C04D6F900E22AEC /* LoginView.swift in Sources */,
+				AF197E942C22D848004DA31C /* YourFeedView.swift in Sources */,
 				AF11E8DB2C04D7FB00E22AEC /* InputView.swift in Sources */,
 				AF11E8C22C04BBA900E22AEC /* ContentView.swift in Sources */,
 				AF11E8C02C04BBA900E22AEC /* ActivityPlusApp.swift in Sources */,
 				AF11E8E32C04DA2E00E22AEC /* User.swift in Sources */,
+				AF8663132C076132004F64B5 /* MainTabBarView.swift in Sources */,
 				AF11E8DF2C04D90600E22AEC /* ProfileView.swift in Sources */,
 				AF11E8DD2C04D89F00E22AEC /* RegistrationView.swift in Sources */,
 				AF11E8E12C04D92700E22AEC /* SettingsRowView.swift in Sources */,
+				AF197EA62C234468004DA31C /* ActivityLogView.swift in Sources */,
+				AF197EAA2C234855004DA31C /* CircleView.swift in Sources */,
+				AFD6F3E92C24375700EAC41A /* DialHeaderView.swift in Sources */,
 				AF11E8F22C04DD9300E22AEC /* AuthViewModel.swift in Sources */,
+				AF197EAD2C2348AD004DA31C /* healthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,12 +446,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = ActivityPlus/ActivityPlus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ActivityPlus/Preview Content\"";
 				DEVELOPMENT_TEAM = A47TB7RL43;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ActivityPlus/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Please allow access";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Please allow access";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -419,12 +481,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = ActivityPlus/ActivityPlus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ActivityPlus/Preview Content\"";
 				DEVELOPMENT_TEAM = A47TB7RL43;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ActivityPlus/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Please allow access";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Please allow access";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

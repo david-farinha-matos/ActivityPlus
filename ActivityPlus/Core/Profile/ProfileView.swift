@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var manager: healthManager
     var body: some View {
         if let user = viewModel.currentUser {
             List {
@@ -68,6 +69,12 @@ struct ProfileView: View {
                         SettingRowView(imageName: "xmark.circle", title: "Delete Account", tintColour: .red)
                     }
                 }
+            }
+            .onAppear {
+                manager.readStepCountToday()
+                manager.readCalorieCountToday()
+                manager.readExerciseMinutesToday()
+                manager.readDistanceMovedToday()
             }
         }
     }

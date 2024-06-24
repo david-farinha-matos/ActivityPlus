@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var manager: healthManager
     var body: some View {
         Group {
             if viewModel.userSession != nil {
-                ProfileView()
+                MainTabBarView()
+                    .environmentObject(manager)
             } else {
                 LoginView()
             }
@@ -23,5 +25,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(AuthViewModel())
+            .environmentObject(healthManager.shared)
     }
 }
