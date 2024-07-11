@@ -1,18 +1,20 @@
 //
 //  healthManager.swift
-//  ActivityPlus
+//  Fitness App
 //
-//  Created by David Matos on 19/06/2024.
+//  Created by David Matos on 06/01/2024.
 //
 
+import SwiftUI
 import Foundation
 import HealthKit
 import WidgetKit
-
+import CoreLocation
 
 class healthManager: ObservableObject {
     var healthStore = HKHealthStore()
-    //    @Published var activities: [String: Activity] = [:]
+    @Published var activity: [String: activityCard] = [:]
+    @Published var weekOffset: Int = -1
     
     var stepCountToday: Int = 0
     var stepCountYesterday: Int = 0
@@ -27,6 +29,8 @@ class healthManager: ObservableObject {
                                      5: 0,
                                      6: 0,
                                      7: 0]
+    var runningStatsThisWeek: [Int: (distance: Double, speed: Double, time: Double, calories: Double, pace: Double)] = [:]
+    
     
     
     static let shared = healthManager()
@@ -41,7 +45,12 @@ class healthManager: ObservableObject {
             HKObjectType.quantityType(forIdentifier: .stepCount)!,
             HKObjectType.quantityType(forIdentifier: .activeEnergyBurned)!,
             HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
-            HKObjectType.workoutType()
+            HKObjectType.quantityType(forIdentifier: .heartRate)!,
+            HKObjectType.quantityType(forIdentifier: .flightsClimbed)!,
+            HKObjectType.quantityType(forIdentifier: .runningPower)!,
+            //            HKObjectType.quantityType(forIdentifier: .runningCadence)!,
+            HKObjectType.workoutType(),
+            HKSeriesType.workoutRoute()
         ])
         guard HKHealthStore.isHealthDataAvailable() else {
             print("health data not available!")
@@ -57,18 +66,26 @@ class healthManager: ObservableObject {
         }
     }
     
+    
     func fetchAllDatas() {
+        print("////////////////////////////////////////")
         print("Attempting to fetch all Datas")
         readStepCountToday()
         readCalorieCountToday()
         readExerciseMinutesToday()
         readDistanceMovedToday()
+        readStepCountThisWeek()
+        //        readRunningStatsThisWeek()
+        weekOffset -= 1
         
         print("DATAS FETCHED: ")
         print("\(stepCountToday) steps today")
         print("\(caloriesBurnedToday) calories today")
         print("\(exerciseTimeToday) exercise time today")
         print("\(distanceMovedToday) distance moved today")
+        print("////////////////////////////////////////")
+        print("\(runningStatsThisWeek) : runnings stats this week")
+        
         
         UserDefaults(suiteName: "group.iWalker")?.set(stepCountToday, forKey: "widgetStep")
         
@@ -106,10 +123,11 @@ class healthManager: ObservableObject {
             print("Fetched your steps today: \(steps)")
             self.stepCountToday = steps
             
-            //          let activity = Activity(id: 0, title: "Steps", subtitle: "steps", image: "figure.walk", amount: "\(self.stepCountToday)")
-            //          DispatchQueue.main.async {
-            //              self.activities["todaySteps"] = activity
-            //          }
+            //            let activity = Activity(id: 0, distance: "10", km: "km", speed: "5'00\"", minKm: "min/km", time: "40.0", mins: "min", calories: "460", cals: "cals", image: "figure.run")
+            //            DispatchQueue.main.async {
+            //                self.activities["todaySteps"] = activity
+            //            }
+            
         }
         
         healthStore.execute(query)
@@ -141,10 +159,10 @@ class healthManager: ObservableObject {
             print("Total calories burned today: \(totalCalories) kcal")
             self.caloriesBurnedToday = Int(totalCalories)
             
-            //          let activity = Activity(id: 0, title: "Active Calories", subtitle: "calories", image: "flame", amount: "\(self.caloriesBurnedToday)")
-            //          DispatchQueue.main.async {
-            //              self.activities["todayCalories"] = activity
-            //          }
+            //            let activity = Activity(id: 0, title: "Active Calories", subtitle: "calories", image: "flame", amount: "\(self.caloriesBurnedToday)")
+            //            DispatchQueue.main.async {
+            //                self.activities["todayCalories"] = activity
+            //            }
         }
         
         healthStore.execute(query)
@@ -171,11 +189,15 @@ class healthManager: ObservableObject {
             // Update the exerciseTimeToday property
             self.exerciseTimeToday = Int(totalExerciseMinutes)
             
-            // Update the activity dictionary with today's exercise minutes
-            //              let activity = Activity(id: 0, title: "Exercise Minutes", subtitle: "minutes", image: "figure.walk", amount: "\(Int(totalExerciseMinutes))")
-            //              DispatchQueue.main.async {
-            //                  self.activities["todayExerciseMinutes"] = activity
-            //              }
+            //            Update the activity dictionary with today's exercise minutes
+            //            let activity = Activity(id: 0, title: "Exercise Minutes", subtitle: "minutes", image: "figure.walk", amount: "\(Int(totalExerciseMinutes))")
+            //            DispatchQueue.main.async {
+            //                self.activities["todayExerciseMinutes"] = activity
+            //            }
+            //            let activity = activitiesCard(id: 0, imageName: "figure.run", title: "Distance", subtitle: "km", tintColour: Color(.systemGray), amount: "\(Int(totalExerciseMinutes))")
+            //            DispatchQueue.main.async {
+            //                self.activities2["todayExerciseMinutes"] = activity
+            //            }
         }
         
         healthStore.execute(query)
@@ -207,12 +229,179 @@ class healthManager: ObservableObject {
             self.distanceMovedToday = roundedDistance
             
             // Update the activity dictionary with today's distance moved
-            //              let activity = Activity(id: 0, title: "Distance Moved", subtitle: "meters", image: "figure.walk", amount: "\(Int(distance))")
-            //              DispatchQueue.main.async {
-            //                  self.activities["todayDistanceMoved"] = activity
-            //              }
+            //            let activity = Activity(id: 0, title: "Distance Moved", subtitle: "meters", image: "figure.walk", amount: "\(Int(distance))")
+            //            DispatchQueue.main.async {
+            //                self.activities["todayDistanceMoved"] = activity
+            //            }
+            //            let activity = activitiesCard(id: 0, imageName: "figure.run", title: "Distance:", subtitle: "km", tintColour: Color(.systemGray), amount: "\(Int(distance))")
+            //            DispatchQueue.main.async {
+            //                self.activities2["todayExerciseMinutes"] = activity
+            //            }
         }
         
         healthStore.execute(query)
+    }
+    
+    
+    
+    
+    
+    func readStepCountThisWeek() {
+        guard let stepCountType = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
+            return
+        }
+        var calendar = Calendar.current
+        calendar.firstWeekday = 2 // Set Monday as the first day of the week
+        let today = calendar.startOfDay(for: Date())
+        // Find the start date (Monday) of the current week
+        guard let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: today)) else {
+            print("Failed to calculate the start date of the week.")
+            return
+        }
+        // Find the end date (Sunday) of the current week
+        guard let endOfWeek = calendar.date(byAdding: .day, value: 6, to: startOfWeek) else {
+            print("Failed to calculate the end date of the week.")
+            return
+        }
+        
+        print("Attempting to get step count from \(startOfWeek) to \(endOfWeek)")
+        
+        let predicate = HKQuery.predicateForSamples(
+            withStart: startOfWeek,
+            end: endOfWeek,
+            options: .strictStartDate
+        )
+        
+        let query = HKStatisticsCollectionQuery(
+            quantityType: stepCountType,
+            quantitySamplePredicate: predicate,
+            options: .cumulativeSum,
+            anchorDate: startOfWeek,
+            intervalComponents: DateComponents(day: 1)
+        )
+        
+        query.initialResultsHandler = { _, result, error in
+            guard let result = result else {
+                if let error = error {
+                    print("An error occurred while retrieving step count: \(error.localizedDescription)")
+                }
+                return
+            }
+            
+            result.enumerateStatistics(from: startOfWeek, to: endOfWeek) { statistics, _ in
+                if let quantity = statistics.sumQuantity() {
+                    let steps = Int(quantity.doubleValue(for: HKUnit.count()))
+                    let day = calendar.component(.weekday, from: statistics.startDate)
+                    DispatchQueue.main.async {
+                        self.thisWeekSteps[day] = steps
+                    }
+                }
+            }
+            
+            print("\(self.thisWeekSteps)")
+        }
+        healthStore.execute(query)
+    }
+    
+    
+    
+    func readAllRunningStats() {
+        let workoutType = HKObjectType.workoutType()
+            
+            print("Attempting to get all running stats")
+            
+            // Use a predicate that retrieves all samples
+            let predicate = HKQuery.predicateForWorkouts(with: .running)
+            
+            let query = HKSampleQuery(sampleType: workoutType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { _, results, error in
+                guard let workouts = results as? [HKWorkout] else {
+                    print("An error occurred while retrieving workouts: \(error?.localizedDescription ?? "UNKNOWN ERROR")")
+                    return
+                }
+                
+                var newActivities: [String: activityCard] = [:]
+                var idCounter = 0
+                
+                // Date formatter for formatting workout start date
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMMM d, yyyy"
+                
+                for workout in workouts {
+                    if workout.workoutActivityType == .running {
+                        let formattedDate = dateFormatter.string(from: workout.startDate)
+                        let distance = workout.totalDistance?.doubleValue(for: .meter()) ?? 0.0
+                        let timeInSeconds = workout.duration
+                        let speed = distance / timeInSeconds
+                        let calories = workout.totalEnergyBurned?.doubleValue(for: .kilocalorie()) ?? 0.0
+                        
+                        let formattedDistance = String(format: "%.2f", distance / 1000)
+                        let formattedTime = self.convertTime(seconds: timeInSeconds)
+                        let formattedSpeed = self.convertSpeedToPace(speed: speed)
+                        let formattedCalories = String(format: "%.0f", calories)
+                        
+                        let activity = activityCard(
+                            id: idCounter,
+                            date: formattedDate,
+                            distance: formattedDistance,
+                            time: formattedTime,
+                            speed: formattedSpeed,
+                            calories: formattedCalories
+                        )
+                        
+                        newActivities["\(workout.startDate)"] = activity
+                        idCounter += 1
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.activity = newActivities
+                }
+            }
+            
+            healthStore.execute(query)
+        }
+    
+    func convertSpeedToPace(speed: Double) -> String {
+        let speedKmPerHour = speed * 3.6
+        let paceMinPerKm = 60 / speedKmPerHour
+        
+        let minutes = Int(paceMinPerKm)
+        let seconds = Int((paceMinPerKm - Double(minutes)) * 60)
+        
+        return String(format: "%d'%02d\"", minutes, seconds)
+    }
+    
+    func convertTime(seconds: Double) -> String {
+        let totalMinutes = Int(seconds / 60)
+        let remainingSeconds = Int(seconds) % 60
+        return String(format: "%d:%02d", totalMinutes, remainingSeconds)
+    }
+    
+    
+    //    func orderedRunningStats() -> [(day: String, distance: Double, speed: Double, time: Double, calories: Double, pace: Double)] {
+    //        let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    //        return runningStatsThisWeek.keys.sorted().compactMap { day -> (day: String, distance: Double, speed: Double, time: Double, calories: Double, pace: Double)? in
+    //            guard let stats = runningStatsThisWeek[day] else { return nil }
+    //            return (daysOfWeek[day - 1], stats.distance, stats.speed, stats.time, stats.calories, stats.pace)
+    //        }
+    //    }
+    
+    
+    
+}
+
+
+extension healthManager {
+    func orderedWeekSteps() -> [(day: String, steps: Int)] {
+        let weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        let sortedSteps = (2...7).map { (dayOfWeek: $0, steps: self.thisWeekSteps[$0, default: 0]) }
+        + [(dayOfWeek: 1, steps: self.thisWeekSteps[1, default: 0])]
+        
+        var stepsData: [(day: String, steps: Int)] = []
+        for (index, stepData) in sortedSteps.enumerated() {
+            stepsData.append((day: weekDays[index], steps: stepData.steps))
+        }
+        
+        return stepsData
     }
 }

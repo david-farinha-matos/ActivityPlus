@@ -11,13 +11,13 @@ struct MainTabBarView: View {
     @State private var selectedTab = 0
     var body: some View {
         TabView(selection: $selectedTab) {
-            Text("Temp")
+            YourFeedView()
                 .tabItem {
                     Image(systemName: "house.fill")
                 }
                 .tag(0)
             
-            Text("Temp")
+            MyWorkoutsView()
                 .tabItem {
                     Image(systemName: "list.bullet.clipboard.fill")
                 }

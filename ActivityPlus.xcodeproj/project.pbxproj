@@ -28,8 +28,15 @@
 		AF197EA82C234835004DA31C /* DialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF197EA72C234835004DA31C /* DialView.swift */; };
 		AF197EAA2C234855004DA31C /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF197EA92C234855004DA31C /* CircleView.swift */; };
 		AF197EAD2C2348AD004DA31C /* healthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF197EAC2C2348AD004DA31C /* healthManager.swift */; };
+		AF5BF1592C2B389000A643EB /* MyWorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5BF1582C2B388F00A643EB /* MyWorkoutsView.swift */; };
 		AF8663132C076132004F64B5 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8663122C076132004F64B5 /* MainTabBarView.swift */; };
+		AFC7E9B92C2C7CDF00C175A6 /* activityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC7E9B82C2C7CDF00C175A6 /* activityCardView.swift */; };
 		AFD6F3E92C24375700EAC41A /* DialHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD6F3E82C24375700EAC41A /* DialHeaderView.swift */; };
+		AFEF7BB92C36CB2A0007F699 /* importWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF7BB82C36CB2A0007F699 /* importWorkoutView.swift */; };
+		AFEF7BBB2C3704C20007F699 /* importWorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF7BBA2C3704C20007F699 /* importWorkoutViewModel.swift */; };
+		AFEF7BBD2C3FE7000007F699 /* YourFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF7BBC2C3FE7000007F699 /* YourFeedViewModel.swift */; };
+		AFEF7BBF2C4000A20007F699 /* feedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF7BBE2C4000A20007F699 /* feedCardView.swift */; };
+		AFEF7BC12C4029100007F699 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF7BC02C4029100007F699 /* LeaderboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,8 +60,15 @@
 		AF197EAC2C2348AD004DA31C /* healthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = healthManager.swift; sourceTree = "<group>"; };
 		AF197EAE2C234C15004DA31C /* ActivityPlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ActivityPlus.entitlements; sourceTree = "<group>"; };
 		AF197EAF2C23541F004DA31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AF5BF1582C2B388F00A643EB /* MyWorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWorkoutsView.swift; sourceTree = "<group>"; };
 		AF8663122C076132004F64B5 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
+		AFC7E9B82C2C7CDF00C175A6 /* activityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = activityCardView.swift; sourceTree = "<group>"; };
 		AFD6F3E82C24375700EAC41A /* DialHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialHeaderView.swift; sourceTree = "<group>"; };
+		AFEF7BB82C36CB2A0007F699 /* importWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = importWorkoutView.swift; sourceTree = "<group>"; };
+		AFEF7BBA2C3704C20007F699 /* importWorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = importWorkoutViewModel.swift; sourceTree = "<group>"; };
+		AFEF7BBC2C3FE7000007F699 /* YourFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourFeedViewModel.swift; sourceTree = "<group>"; };
+		AFEF7BBE2C4000A20007F699 /* feedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedCardView.swift; sourceTree = "<group>"; };
+		AFEF7BC02C4029100007F699 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +152,8 @@
 			children = (
 				AF11E8DA2C04D7FB00E22AEC /* InputView.swift */,
 				AF11E8E02C04D92700E22AEC /* SettingsRowView.swift */,
+				AFC7E9B82C2C7CDF00C175A6 /* activityCardView.swift */,
+				AFEF7BBE2C4000A20007F699 /* feedCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -173,6 +189,9 @@
 				AF11E8DE2C04D90600E22AEC /* ProfileView.swift */,
 				AF197E932C22D848004DA31C /* YourFeedView.swift */,
 				AF197EA52C234468004DA31C /* ActivityLogView.swift */,
+				AF5BF1582C2B388F00A643EB /* MyWorkoutsView.swift */,
+				AFEF7BB82C36CB2A0007F699 /* importWorkoutView.swift */,
+				AFEF7BC02C4029100007F699 /* LeaderboardView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -190,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				AF11E8F12C04DD9300E22AEC /* AuthViewModel.swift */,
+				AFEF7BBA2C3704C20007F699 /* importWorkoutViewModel.swift */,
+				AFEF7BBC2C3FE7000007F699 /* YourFeedViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -300,15 +321,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFEF7BBF2C4000A20007F699 /* feedCardView.swift in Sources */,
+				AFEF7BBD2C3FE7000007F699 /* YourFeedViewModel.swift in Sources */,
+				AFC7E9B92C2C7CDF00C175A6 /* activityCardView.swift in Sources */,
 				AF197EA82C234835004DA31C /* DialView.swift in Sources */,
 				AF11E8D92C04D6F900E22AEC /* LoginView.swift in Sources */,
+				AFEF7BB92C36CB2A0007F699 /* importWorkoutView.swift in Sources */,
 				AF197E942C22D848004DA31C /* YourFeedView.swift in Sources */,
+				AFEF7BBB2C3704C20007F699 /* importWorkoutViewModel.swift in Sources */,
 				AF11E8DB2C04D7FB00E22AEC /* InputView.swift in Sources */,
 				AF11E8C22C04BBA900E22AEC /* ContentView.swift in Sources */,
 				AF11E8C02C04BBA900E22AEC /* ActivityPlusApp.swift in Sources */,
 				AF11E8E32C04DA2E00E22AEC /* User.swift in Sources */,
 				AF8663132C076132004F64B5 /* MainTabBarView.swift in Sources */,
+				AF5BF1592C2B389000A643EB /* MyWorkoutsView.swift in Sources */,
 				AF11E8DF2C04D90600E22AEC /* ProfileView.swift in Sources */,
+				AFEF7BC12C4029100007F699 /* LeaderboardView.swift in Sources */,
 				AF11E8DD2C04D89F00E22AEC /* RegistrationView.swift in Sources */,
 				AF11E8E12C04D92700E22AEC /* SettingsRowView.swift in Sources */,
 				AF197EA62C234468004DA31C /* ActivityLogView.swift in Sources */,
