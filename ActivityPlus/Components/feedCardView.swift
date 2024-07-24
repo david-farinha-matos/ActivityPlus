@@ -19,6 +19,7 @@ struct feedCard: Identifiable {
     let time: String
     let speed: String
     let calories: String
+//    let totalDistance: Double
     var isImported: Bool = false
 }
 

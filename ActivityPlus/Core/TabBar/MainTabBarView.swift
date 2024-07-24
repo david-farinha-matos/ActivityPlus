@@ -23,7 +23,7 @@ struct MainTabBarView: View {
                 }
                 .tag(1)
             
-            Text("Temp")
+            LeaderboardView()
                 .tabItem {
                     Image(systemName: "trophy.fill")
                 }

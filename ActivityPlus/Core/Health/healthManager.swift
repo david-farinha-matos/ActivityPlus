@@ -85,6 +85,7 @@ class healthManager: ObservableObject {
         print("\(distanceMovedToday) distance moved today")
         print("////////////////////////////////////////")
         print("\(runningStatsThisWeek) : runnings stats this week")
+        print("\(thisWeekSteps) : steps this week")
         
         
         UserDefaults(suiteName: "group.iWalker")?.set(stepCountToday, forKey: "widgetStep")
@@ -298,7 +299,7 @@ class healthManager: ObservableObject {
                 }
             }
             
-            print("\(self.thisWeekSteps)")
+            print("steps this week: \(self.thisWeekSteps)")
         }
         healthStore.execute(query)
     }

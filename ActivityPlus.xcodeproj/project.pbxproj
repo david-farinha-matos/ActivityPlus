@@ -37,6 +37,7 @@
 		AFEF7BBD2C3FE7000007F699 /* YourFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF7BBC2C3FE7000007F699 /* YourFeedViewModel.swift */; };
 		AFEF7BBF2C4000A20007F699 /* feedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF7BBE2C4000A20007F699 /* feedCardView.swift */; };
 		AFEF7BC12C4029100007F699 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF7BC02C4029100007F699 /* LeaderboardView.swift */; };
+		AFEF7BC32C4043900007F699 /* leaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF7BC22C4043900007F699 /* leaderboardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		AFEF7BBC2C3FE7000007F699 /* YourFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourFeedViewModel.swift; sourceTree = "<group>"; };
 		AFEF7BBE2C4000A20007F699 /* feedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = feedCardView.swift; sourceTree = "<group>"; };
 		AFEF7BC02C4029100007F699 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		AFEF7BC22C4043900007F699 /* leaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = leaderboardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 				AF11E8F12C04DD9300E22AEC /* AuthViewModel.swift */,
 				AFEF7BBA2C3704C20007F699 /* importWorkoutViewModel.swift */,
 				AFEF7BBC2C3FE7000007F699 /* YourFeedViewModel.swift */,
+				AFEF7BC22C4043900007F699 /* leaderboardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				AF11E8E32C04DA2E00E22AEC /* User.swift in Sources */,
 				AF8663132C076132004F64B5 /* MainTabBarView.swift in Sources */,
 				AF5BF1592C2B389000A643EB /* MyWorkoutsView.swift in Sources */,
+				AFEF7BC32C4043900007F699 /* leaderboardViewModel.swift in Sources */,
 				AF11E8DF2C04D90600E22AEC /* ProfileView.swift in Sources */,
 				AFEF7BC12C4029100007F699 /* LeaderboardView.swift in Sources */,
 				AF11E8DD2C04D89F00E22AEC /* RegistrationView.swift in Sources */,

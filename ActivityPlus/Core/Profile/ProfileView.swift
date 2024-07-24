@@ -74,6 +74,7 @@ struct ProfileView: View {
                 manager.readStepCountToday()
                 manager.readCalorieCountToday()
                 manager.readExerciseMinutesToday()
+                manager.readStepCountThisWeek()
                 manager.readDistanceMovedToday()
             }
         }
