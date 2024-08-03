@@ -88,14 +88,6 @@ struct MyWorkoutsView: View {
                             activityCardView(activity: workout)
                         }
                     }
-//                    .onAppear {
-//                        manager.readStepCountToday()
-//                        manager.readCalorieCountToday()
-//                        manager.readExerciseMinutesToday()
-//                        manager.readDistanceMovedToday()
-//                        manager.readStepCountThisWeek()
-//                        manager.readAllRunningStats()
-//                    }
                 }
                 .onAppear {
                     importViewModel.fetchImportedWorkouts()

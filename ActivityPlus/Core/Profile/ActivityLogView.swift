@@ -82,39 +82,6 @@ struct ActivityLogView: View {
             }
         }
     }
-    
-    
-//    var body: some View {
-//        ZStack {
-//            Color(UIColor.systemGray6) // Set the desired light gray background color here
-//                .edgesIgnoringSafeArea(.all)
-//            if let user = viewModel.currentUser {
-//                List {
-//                    Section {
-//                        DialHeaderView(name: user.firstName, image: "profile")
-//                            .padding()
-//                    }
-//                    Section {
-//                        DialView(goal: 10_000, steps: manager.stepCountToday)
-//                            .padding()
-//                    }
-//                    Section {
-//                        HStack(spacing: 30) {
-//                            StatTile(image: "flame", value: String(manager.caloriesBurnedToday), measurement: "Cals")
-//                            StatTile(image: "clock", value: String(manager.exerciseTimeToday), measurement: "Mins")
-//                            StatTile(image: "point.bottomleft.forward.to.point.topright.scurvepath", value: String(manager.distanceMovedToday), measurement: "Km")
-//                        }
-//                        .padding()
-//                    }
-//                }
-//                .background(Color(UIColor.systemGray6))
-//            } else {
-//                Text("No user found.")
-//            }
-//        }
-//        .padding()
-//        .background(Color(.systemGray6))
-//    }
 }
 
 struct StatTile: View {
@@ -135,7 +102,6 @@ struct StatTile: View {
         .background(
             RoundedRectangle(cornerRadius: 15).fill(Color.white)
                 .shadow(color: .foregroundGray, radius: 10)
-//                .shadow(color: .white, radius: 3, x: -8, y: -8)
         )
     }
 

@@ -18,13 +18,6 @@ struct ContentView: View {
             } else {
                 LoginView()
             }
-            //                }
-            //                .onAppear {
-            //                    if let userSession = viewModel.userSession {
-            //                        print("User session is: \(userSession)")
-            //                    } else {
-            //                        print("User session is nil")
-            //                    }
         }
     }
 }

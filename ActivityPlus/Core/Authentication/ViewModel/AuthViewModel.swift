@@ -20,8 +20,6 @@ class AuthViewModel: ObservableObject {
     
     init() {
         self.userSession = Auth.auth().currentUser
-//        print(userSession)
-//        signOut()
         
         Task {
             await fetchUser()

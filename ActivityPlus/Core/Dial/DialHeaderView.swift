@@ -14,26 +14,6 @@ struct DialHeaderView: View {
     let image: String
 
     var body: some View {
-//        HStack {
-//            Image("DavidPicture")
-//                .resizable()
-//                .scaledToFit()
-//                .clipShape(Circle())
-//                .frame(width: 100, height: 100)
-//            
-////            Spacer()
-//            VStack(alignment: .leading, spacing: 4) {
-//                Text("Good Morning\n\(name)")
-//                    .font(.title)
-//                    .fontWeight(.semibold)
-//                    //.multilineTextAlignment(.leading)
-//                Text("Let's get started")
-//            }
-//            
-//        }
-//        .foregroundColor(.accentColor)
-        
-        
         HStack {
             Image("DavidPicture")
                 .resizable()

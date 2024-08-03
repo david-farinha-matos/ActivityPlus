@@ -107,7 +107,6 @@ class healthManager: ObservableObject {
             options: .strictStartDate
         )
         
-        //    print("attempting to get step count from \(startDate)")
         
         let query = HKStatisticsQuery(
             quantityType: stepCountType,
@@ -123,11 +122,6 @@ class healthManager: ObservableObject {
             let steps = Int(sum.doubleValue(for: HKUnit.count()))
             print("Fetched your steps today: \(steps)")
             self.stepCountToday = steps
-            
-            //            let activity = Activity(id: 0, distance: "10", km: "km", speed: "5'00\"", minKm: "min/km", time: "40.0", mins: "min", calories: "460", cals: "cals", image: "figure.run")
-            //            DispatchQueue.main.async {
-            //                self.activities["todaySteps"] = activity
-            //            }
             
         }
         
@@ -159,11 +153,6 @@ class healthManager: ObservableObject {
             // Process the total calories burned
             print("Total calories burned today: \(totalCalories) kcal")
             self.caloriesBurnedToday = Int(totalCalories)
-            
-            //            let activity = Activity(id: 0, title: "Active Calories", subtitle: "calories", image: "flame", amount: "\(self.caloriesBurnedToday)")
-            //            DispatchQueue.main.async {
-            //                self.activities["todayCalories"] = activity
-            //            }
         }
         
         healthStore.execute(query)
@@ -189,16 +178,6 @@ class healthManager: ObservableObject {
             
             // Update the exerciseTimeToday property
             self.exerciseTimeToday = Int(totalExerciseMinutes)
-            
-            //            Update the activity dictionary with today's exercise minutes
-            //            let activity = Activity(id: 0, title: "Exercise Minutes", subtitle: "minutes", image: "figure.walk", amount: "\(Int(totalExerciseMinutes))")
-            //            DispatchQueue.main.async {
-            //                self.activities["todayExerciseMinutes"] = activity
-            //            }
-            //            let activity = activitiesCard(id: 0, imageName: "figure.run", title: "Distance", subtitle: "km", tintColour: Color(.systemGray), amount: "\(Int(totalExerciseMinutes))")
-            //            DispatchQueue.main.async {
-            //                self.activities2["todayExerciseMinutes"] = activity
-            //            }
         }
         
         healthStore.execute(query)
@@ -228,16 +207,6 @@ class healthManager: ObservableObject {
             
             // Update the distanceMovedToday property
             self.distanceMovedToday = roundedDistance
-            
-            // Update the activity dictionary with today's distance moved
-            //            let activity = Activity(id: 0, title: "Distance Moved", subtitle: "meters", image: "figure.walk", amount: "\(Int(distance))")
-            //            DispatchQueue.main.async {
-            //                self.activities["todayDistanceMoved"] = activity
-            //            }
-            //            let activity = activitiesCard(id: 0, imageName: "figure.run", title: "Distance:", subtitle: "km", tintColour: Color(.systemGray), amount: "\(Int(distance))")
-            //            DispatchQueue.main.async {
-            //                self.activities2["todayExerciseMinutes"] = activity
-            //            }
         }
         
         healthStore.execute(query)
@@ -377,18 +346,6 @@ class healthManager: ObservableObject {
         let remainingSeconds = Int(seconds) % 60
         return String(format: "%d:%02d", totalMinutes, remainingSeconds)
     }
-    
-    
-    //    func orderedRunningStats() -> [(day: String, distance: Double, speed: Double, time: Double, calories: Double, pace: Double)] {
-    //        let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    //        return runningStatsThisWeek.keys.sorted().compactMap { day -> (day: String, distance: Double, speed: Double, time: Double, calories: Double, pace: Double)? in
-    //            guard let stats = runningStatsThisWeek[day] else { return nil }
-    //            return (daysOfWeek[day - 1], stats.distance, stats.speed, stats.time, stats.calories, stats.pace)
-    //        }
-    //    }
-    
-    
-    
 }
 
 

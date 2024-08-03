@@ -114,15 +114,6 @@ struct YourFeedView: View {
     }
 }
 
-//struct activityCard: Identifiable {
-//    let id: Int
-//    let date: String
-//    let distance: String
-//    let time: String
-//    let speed: String
-//    let calories: String
-//    var isImported: Bool = false
-//}
 
 #Preview {
     YourFeedView()

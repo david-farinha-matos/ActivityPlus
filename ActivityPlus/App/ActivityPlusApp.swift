@@ -22,7 +22,6 @@ struct ActivityPlusApp: App {
             ContentView()
                 .environmentObject(viewModel)
                 .environmentObject(manager)
-//            LoginView()
         }
     }
 }
